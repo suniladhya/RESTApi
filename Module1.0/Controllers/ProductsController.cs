@@ -19,14 +19,16 @@ namespace Module1.Controllers
         };
 
         [HttpGet]
-        public IEnumerable<Product> Get()
+        public IActionResult Get()
         {
-            return products;
+            //return Ok(products);
+            return StatusCode(StatusCodes.Status201Created);
         }
         [HttpPost]
-        public void Post(Product p)
+        public IActionResult Post(Product p)
         {
             products.Add(p);
+            return StatusCode(StatusCodes.Status201Created);
         }
 
     }
